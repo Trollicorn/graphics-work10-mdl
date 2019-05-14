@@ -1,9 +1,8 @@
-run: main.py display.py draw.py matrix.py parse.py transform.py
-	python main.py
-
-rungood: maingood.py display.py draw.py matrix.py parse.py transform.py
-	python maingood.py
+test: face.mdl lex.py main.py matrix.py mdl.py display.py draw.py transform.py yacc.py
+	python main.py face.mdl
 
 clean:
-	rm *.pyc
-	rm *~
+	rm *pyc *out parsetab.py
+
+clear:
+	rm *pyc *out parsetab.py *ppm
