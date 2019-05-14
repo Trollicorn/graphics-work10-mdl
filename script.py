@@ -36,7 +36,7 @@ def run(filename):
     tmp = new_matrix()
     ident( tmp )
 
-    stack = [ [x[:] for x in tmp] ]
+    csystems = [ [x[:] for x in tmp] ]
     screen = new_screen()
     zbuffer = new_zbuffer()
     tmp = []
@@ -52,4 +52,6 @@ def run(filename):
 
     print symbols
     for command in commands:
+        if command['op'] == 'commands':
+            pass
         print command
