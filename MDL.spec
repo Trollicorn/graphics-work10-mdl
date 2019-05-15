@@ -1,10 +1,10 @@
 General Notes:
 
-Items seperated by | means you must choose one of them in an input line.
+Items separated by | means you must choose one of them in an input line.
 Items enclosed in [] are optional.
 
 For example, rotate is specified as:
-rotate x|y|z degress [knob]
+rotate x|y|z degrees [knob]
 
 The following would be valid rotations:
 rotate x 20
@@ -44,7 +44,7 @@ Image creation
 All image creation commands will operate as follows:
 
 1. Generate all the points and edges for the object in question.
-2. If no coord_system is specified, transform the points against the
+2. If no coord system is specified, transform the points against the
    top of the stack. If there is a coord_system specified, transform
    the points against that matrix instead.
 3. Render the object.
