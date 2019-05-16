@@ -1,0 +1,41 @@
+constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
+constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
+//Body
+push
+move 250 280 0
+rotate y 20
+rotate x 20
+box dull_yellow -50 50 100 100 100 200
+//Leg 1
+push
+move -50 -30 80
+box dull_yellow -10 -10 10 20 140 20
+pop
+//Leg 2
+push
+move 50 -30 80
+box dull_yellow -10 -10 10 20 140 20
+pop
+//Leg 3
+push
+move -50 -30 -80
+box dull_yellow -10 -10 10 20 140 20
+pop
+//Leg 4
+push
+move 50 -30 -80
+box dull_yellow -10 -10 10 20 140 20
+pop
+//Eye 1
+push
+move -20 10 110
+sphere shiny_teal 0 0 0 10
+pop
+//Eye 2
+push
+move 20 10 110
+sphere shiny_teal 0 0 0 10
+pop
+pop
+display
+save oof.png
