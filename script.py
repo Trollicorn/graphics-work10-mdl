@@ -59,6 +59,12 @@ def run(filename):
         "rotate": rotate,
         "scale": dilate
     }
+    shape = {
+        "line": add_edge,
+        "circle": circle,
+        "hermite": hermite,
+        "bezier": bezier
+    }
     solid = {
         "box": box,
         "sphere": sphere,
@@ -79,17 +85,22 @@ def run(filename):
         elif op in solid:
             solid[op](tmp,command['args'])
             matrix_mult(csystems[-1],tmp)
-            print op
-            print command
             if command['constants'] is None:
                 draw_polygons(tmp,screen,zbuffer,color,view, ambient, light, areflect, dreflect, sreflect)
             else:
-                print "USES CONSTANT"
-                const = command['constants']
-                print symbols[const]
-        #        print symbols[command['constants']]
-        #        draw_polygons(tmp,screen,zbuffer,color,view, ambient, light, areflect, dreflect, sreflect)
+                const = symbols[command['constants']][1]
+                reflects = [[const['red'][i],const['blue'][i],const['green'][i]] for i in range(3)]
+                draw_polygons(tmp,screen,zbuffer,color,view, ambient, light, reflects[0], reflects[1], reflects[2])
+            tmp = []
+        elif op in shape:
+            shape[op](tmp,command['args'])
+            matrix_mult(csystems[-1],tmp)
+            draw_lines(tmp,screen,zbuffer,color)
+            tmp = []
+        elif op == 'display':
+            display(screen)
+        elif op == 'save':
+            save_extension(screen,command['args'][0]+'.png')
         else:
-            pass
-        #    print command['op']
-        #    print command
+            print command['op']
+            print command
