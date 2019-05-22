@@ -89,7 +89,7 @@ def run(filename):
                 draw_polygons(tmp,screen,zbuffer,color,view, ambient, light, areflect, dreflect, sreflect)
             else:
                 const = symbols[command['constants']][1]
-                reflects = [[const['red'][i],const['blue'][i],const['green'][i]] for i in range(3)]
+                reflects = [[const['red'][i],const['green'][i],const['blue'][i]] for i in range(3)]
                 draw_polygons(tmp,screen,zbuffer,color,view, ambient, light, reflects[0], reflects[1], reflects[2])
             tmp = []
         elif op in shape:
